@@ -8,26 +8,6 @@ Built as a backend component to complete [Hitchedagram](https://github.com/NCMos
 serverless deploy
 ```
 
-### Installation
-
-To create a new Serverless project.
-
-```bash
-$ serverless install --url https://github.com/AnomalyInnovations/serverless-nodejs-starter --name my-project
-```
-
-Enter the new directory
-
-```bash
-$ cd my-project
-```
-
-Install the Node.js packages
-
-```bash
-$ npm install
-```
-
 ### Usage
 
 To run unit tests on your local
