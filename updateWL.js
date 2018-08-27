@@ -9,7 +9,7 @@ export async function main(event, context, callback) {
     // - 'userId': Identity Pool identity id of the authenticated user
     // - 'postId': path parameter
     Key: {
-      userId: event.requestContext.identity.cognitoIdentityId,
+      userId: data.userId,
       postId: event.pathParameters.id
     },
     // 'UpdateExpression' defines the attributes to be updated
