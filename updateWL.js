@@ -14,9 +14,10 @@ export async function main(event, context, callback) {
     },
     // 'UpdateExpression' defines the attributes to be updated
     // 'ExpressionAttributeValues' defines the value in the update expression
-    UpdateExpression: 'SET whoLiked = :whoLiked',
+    UpdateExpression: 'SET whoLiked = :whoLiked, likes = :likes',
     ExpressionAttributeValues: {
-      ':whoLiked': data.whoLiked ? data.whoLiked : null
+      ':whoLiked': data.whoLiked ? data.whoLiked : null,
+      ':likes': data.likes ? data.likes : 0
     },
     ReturnValues: 'ALL_NEW'
   };
