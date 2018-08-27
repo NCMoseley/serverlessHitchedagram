@@ -15,11 +15,11 @@ plugins:
 #     includeModules: true
 
 custom:
-   webpack:
-     webpackConfig: ./webpack.config.js
-     includeModules:
-       forceInclude:
-         - serverless-webpack    
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules:
+      forceInclude:
+        - serverless-webpack
 
 provider:
   name: aws
@@ -39,7 +39,7 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:us-east-2:*:*"
+      Resource: 'arn:aws:dynamodb:us-east-2:*:*'
 
 functions:
   # Defines an HTTP API endpoint that calls the main function in create.js
@@ -81,6 +81,18 @@ functions:
           cors: true
           authorizer: aws_iam
 
+  listAll:
+    # Defines an HTTP API endpoint that calls the main function in list.js
+    # - path: url path is /posts
+    # - method: GET request
+    handler: listAll.main
+    events:
+      - http:
+          path: all
+          method: get
+          cors: true
+          authorizer: aws_iam
+
   update:
     # Defines an HTTP API endpoint that calls the main function in update.js
     # - path: url path is /posts/{id}
@@ -102,5 +114,17 @@ functions:
       - http:
           path: posts/{id}
           method: delete
+          cors: true
+          authorizer: aws_iam
+
+  updateWL:
+    # Defines an HTTP API endpoint that calls the main function in update.js
+    # - path: url path is /posts/{id}
+    # - method: PUT request
+    handler: updateWL.main
+    events:
+      - http:
+          path: post/{id}
+          method: put
           cors: true
           authorizer: aws_iam
