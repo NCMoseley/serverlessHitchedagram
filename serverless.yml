@@ -57,6 +57,15 @@ functions:
           cors: true
           authorizer: aws_iam
 
+  createUsers:
+    handler: createUsers.main
+    events:
+      - http:
+          path: users
+          method: post
+          cors: true
+          authorizer: aws_iam
+
   get:
     # Defines an HTTP API endpoint that calls the main function in get.js
     # - path: url path is /posts/{id}
@@ -92,6 +101,18 @@ functions:
           method: get
           cors: true
           authorizer: aws_iam
+
+  listUsers:
+    # Defines an HTTP API endpoint that calls the main function in list.js
+    # - path: url path is /posts
+    # - method: GET request
+    handler: listUsers.main
+    events:
+      - http:
+          path: usersAll
+          method: get
+          cors: true
+          authorizer: aws_iam        
 
   update:
     # Defines an HTTP API endpoint that calls the main function in update.js

@@ -1,0 +1,8 @@
+{
+  "body": "{\"email\":\"example@ex.com\",\"name\":\"Example Ex\"}",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}
